@@ -43,6 +43,13 @@ module.exports = {
       {
         test:   /\.css$/,
         loader: "style-loader!css-loader!postcss-loader"
+      },
+      {
+        test: /\.tsv$/,
+        loader: "file?name=[name].[ext]",
+        include: [
+          path.resolve(__dirname, "src/data"),
+        ],
       }
     ]
   },

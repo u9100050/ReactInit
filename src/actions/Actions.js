@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import '../data/russia-region-names.tsv'
 
 export function getRegions() {
     return (dispatch)=> {
@@ -6,20 +7,18 @@ export function getRegions() {
             type: 'SET_REGIONS_REQUEST',
             payload: 'Загрузка...'
         });
-        dispatch({
-            type: 'SET_REGIONS_SUCCESS',
-            payload: (()=>{
-                let regs = [];
-                console.log(__dirname);
-                d3.tsv('/static/russia-region-names.tsv',(data)=>{
-                    regs = data;
-                });
-                return regs;
-            })()
-        });
-        dispatch({
-            type: 'SET_REGIONS_FAILURE',
-            payload: 'Нет данных'
+        d3.tsv('/static/russia-region-names.tsv',(data)=>{
+            if (data.length){
+                dispatch({
+                    type: 'SET_REGIONS_SUCCESS',
+                    payload: data
+                })
+            }else {
+                dispatch({
+                    type: 'SET_REGIONS_FAILURE',
+                    payload: 'Нет данных'
+                })
+            }
         });
     }
 }
