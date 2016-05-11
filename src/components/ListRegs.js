@@ -1,13 +1,14 @@
 import React, {PropTypes, Component} from 'react';
 
 export default class ListOfRegs extends Component {
-    constructor(){
-        this.props.getRegions();
+    componentWillMount(){
+      this.props.getRegions();  
     }
     render() {
         const {regs} = this.props;
+        console.log(this.props);
         return (
-            <div className="leftSide">
+            <div className='leftSide'>
                 {regs}
             </div>
         )
@@ -15,5 +16,6 @@ export default class ListOfRegs extends Component {
 }
 
 ListOfRegs.propTypes = {
-    regs: PropTypes.array.isRequired
+    regs: PropTypes.array.isRequired,
+    getRegions: PropTypes.func.isRequired
 };

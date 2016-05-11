@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import red1 from './red1';
+import listOfRegs from './listOfRegs';
 
 export default combineReducers({
-  red1
+  listOfRegs
 })

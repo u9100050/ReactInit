@@ -1,28 +1,30 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as Actions from '../actions/Actions'
+import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as Actions from '../actions/Actions';
+import ListOfRegs from '../components/ListRegs';
+import MapViewPort from '../components/MapViewPort';
 
 class App extends Component {
-  render() {
-    const { elems } = this.props.elems;
-    const { func } = this.props.func;
-
-    return <div func={func} props={elems}></div>
-  }
+    render() {
+        const {regions} = this.props.listData;
+        const {getRegions} = this.props.Actions;
+        return (
+            <div className='main'>
+                <ListOfRegs regs={regions} getRegions={getRegions}/>
+                <MapViewPort />
+            </div>
+        )
+    }
 }
-
 function mapStateToProps(state) {
-  return {
-    elems: state.elems,
-    func: state.func
-  }
+    return {
+        listData: state.listOfRegs
+    }
 }
-
 function mapDispatchToProps(dispatch) {
-  return {
-    Actions: bindActionCreators(Actions, dispatch)
-  }
+    return {
+        Actions: bindActionCreators(Actions, dispatch)
+    }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(App)
