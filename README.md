@@ -1,2 +1,1 @@
-# ReactInit
-My React Start Kit
+#React Starter Kit
