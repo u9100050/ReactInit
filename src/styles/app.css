@@ -1,8 +1,9 @@
-.main{
+.main {
     display: flex;
     flex-flow: row nowrap;
 }
-.leftSide{
+
+.leftSide {
     height: 100vh;
     max-width: 250px;
     flex: 1 1 250px;
@@ -10,18 +11,50 @@
     display: flex;
     flex-flow: column nowrap;
 }
-.filterWrapper{
-    flex: 1 1 100px;
-}
-.listWrapper{
-    flex: 1 1 auto;
-    max-height: 95%;
-    overflow: scroll;
-}
-.mapViewPort{
+
+.filterWrapper {
     flex: 1 1 auto;
 }
-.list-group-item{
-    margin-top: -2px;
-    margin-bottom: 5px;
+
+.filter {
+    width: 100%;
+    margin: 5px 5px 3px 0;
+}
+
+.listWrapper {
+    flex: 1 1 auto;
+    height: 100%;
+    /*margin-bottom: 5px;*/
+    overflow-y: auto;
+    /*overflow-x: hidden;*/
+    /*padding: 5px;*/
+    /*border: 1px solid gray;*/
+}
+
+.mapViewPort {
+    flex: 1 1 auto;
+    margin: 5px 5px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.mapPanel{
+    flex: 1 1 auto;
+}
+.map{
+    min-width: 500px;
+    min-height: 500px;
+    border: 1px solid skyblue;
+}
+.infoPanel{
+    flex: 1 1 auto;
+}
+.list-group-item {
+    margin-bottom: 1px;
+    margin-left: -10px;
+    /*margin-right: -20px;*/
+    /*position: relative;*/
+    /*!*margin-top: -2px;*!*/
+    /*margin-bottom: 1px;*/
+    padding-top: 3px;
+    padding-bottom: 3px;
 }

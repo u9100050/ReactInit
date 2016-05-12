@@ -9,9 +9,14 @@ class App extends Component {
     render() {
         const {regions} = this.props.listData;
         const {getRegions} = this.props.Actions;
+        const {changeFilter} = this.props.Actions;
         return (
             <div className='main'>
-                <ListOfRegs regs={regions} getRegions={getRegions}/>
+                <ListOfRegs 
+                    regs={regions} 
+                    getRegions={getRegions}
+                    changeFilter = {changeFilter}
+                />
                 <MapViewPort />
             </div>
         )
